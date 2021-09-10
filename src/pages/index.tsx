@@ -1,38 +1,21 @@
 import { useEffect } from "react";
 import * as glide from "../glide";
 import { ColumnValue } from "../glide";
-import { fetchWithColumns } from "../glide-next";
 
-async function fetchCount(
-  redis: ColumnValue,
-  counter: ColumnValue,
-  node: ColumnValue,
-  count: ColumnValue,
-  updated: ColumnValue
-) {
-  if (
-    [redis, counter, node, count, updated].some((f) => f.value === undefined)
-  ) {
+async function echo(message: ColumnValue) {
+  if (message.value === undefined) {
     return undefined;
   }
 
-  const response = await fetchWithColumns(`/api/count`, {
-    redis,
-    counter,
-    node,
-    count,
-    updated,
-  });
-
-  return response.count;
+  return `echo ${message.value}`;
 }
 
 function Index() {
   useEffect(() => {
-    glide.column(fetchCount);
+    glide.column(echo);
   });
 
-  return <div>redis counter</div>;
+  return <div>echo column</div>;
 }
 
 export default Index;

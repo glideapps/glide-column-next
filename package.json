@@ -1,5 +1,5 @@
 {
-  "name": "glide-computed-column",
+  "name": "glide-column-next",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -30,7 +30,6 @@
     "dotenv": "^10.0.0",
     "next": "^11.1.2",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "redis": "^4.0.0-rc.1"
+    "react-dom": "^17.0.2"
   }
 }
